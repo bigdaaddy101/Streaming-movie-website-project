@@ -13,13 +13,19 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-      <div class="hero-content">
-        <h2 class="hero-title">Hi, I'm Chris 👋</h2>
-        <p class="hero-subtitle">A Frontend Developer building modern web applications</p>
+      <div class="hero-container">
+        <div class="hero-image-wrapper">
+          <img src="./assets/hero.png" alt="Chris" class="hero-image" @mouseover="isImageHovered = true" @mouseleave="isImageHovered = false" :class="{ hovered: isImageHovered }" />
+        </div>
+        
+        <div class="hero-content">
+          <h2 class="hero-title">Hi, I'm Chris 👋</h2>
+          <p class="hero-subtitle">A Frontend Developer building modern web applications</p>
 
-        <div class="buttons">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#contact" class="btn">Contact Me</a>
+          <div class="buttons">
+            <a href="#projects" class="btn primary">View Projects</a>
+            <a href="#contact" class="btn">Contact Me</a>
+          </div>
         </div>
       </div>
       
@@ -218,10 +224,60 @@ nav {
   text-align: center;
 }
 
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  animation: fadeInLeft 1s ease 0.2s both;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.6) contrast(1.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image:hover,
+.hero-image.hovered {
+  filter: brightness(1) contrast(1);
+  box-shadow: 0 30px 60px rgba(170, 59, 255, 0.2);
+  transform: scale(1.05);
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .hero-content {
   position: relative;
   z-index: 10;
   animation: fadeInUp 1s ease 0.2s both;
+  flex: 1;
+  min-width: 250px;
 }
 
 .hero-title {
@@ -572,6 +628,15 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-image-wrapper {
+    max-width: 300px;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -610,6 +675,7 @@ import { SpeedInsights } from '@vercel/speed-insights/vue';
 const isScrolled = ref(false)
 const activeCard = ref(null)
 const formStatus = ref('')
+const isImageHovered = ref(false)
 
 const projects = ref([
   {
