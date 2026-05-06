@@ -65,7 +65,7 @@
         <span>Tailwind CSS</span>
         <span>Node.js</span>
         <span>MySQL</span>
-        <span>Git</span>
+        <span>Github</span>
       </div>
     </section>
 
