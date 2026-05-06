@@ -15,7 +15,7 @@
     <section class="hero">
       <div class="hero-container">
         <div class="hero-image-wrapper">
-          <img src="./assets/hero.png" alt="Chris" class="hero-image" @mouseover="isImageHovered = true" @mouseleave="isImageHovered = false" :class="{ hovered: isImageHovered }" />
+          <img src="./assets/610897477_25515214761454604_9128693774218866743_n.jpg" alt="Chris" class="hero-image" @mouseover="isImageHovered = true" @mouseleave="isImageHovered = false" :class="{ hovered: isImageHovered }" />
         </div>
         
         <div class="hero-content">
