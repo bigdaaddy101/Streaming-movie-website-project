@@ -1,4 +1,5 @@
 <template>
+  <SpeedInsights />
   <div class="app">
     <!-- NAVBAR -->
     <header class="navbar" :class="{ scrolled: isScrolled }">
@@ -604,6 +605,7 @@ footer {
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { SpeedInsights } from "@vercel/speed-insights/vue"
 
 const isScrolled = ref(false)
 const activeCard = ref(null)
