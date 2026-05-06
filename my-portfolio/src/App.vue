@@ -1260,3 +1260,158 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import { SpeedInsights } from '@vercel/speed-insights/vue'
+
+const isScrolled = ref(false)
+const activeCard = ref(null)
+const activeShowcase = ref(0)
+const formStatus = ref('')
+const isImageHovered = ref(false)
+
+const stats = ref([
+  { number: '50+', label: 'Projects Completed' },
+  { number: '100%', label: 'Client Satisfaction' },
+  { number: '3+', label: 'Years Experience' }
+])
+
+const projects = ref([
+  {
+    title: 'Movie Streaming Website',
+    description: 'Built with Vue + API integration. Features include real-time search, user authentication, and movie recommendations.',
+    icon: '🎬',
+    color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    tech: ['Vue.js', 'API', 'Authentication']
+  },
+  {
+    title: 'Lead Generation Website',
+    description: 'SEO-focused landing page for business leads. Optimized for conversions with responsive design and analytics.',
+    icon: '📱',
+    color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    tech: ['SEO', 'Responsive', 'Analytics']
+  },
+  {
+    title: 'Inventory System',
+    description: 'Full-stack system with Vue + Flask + MySQL. Complete inventory management with real-time updates.',
+    icon: '📦',
+    color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    tech: ['Vue.js', 'Flask', 'MySQL']
+  }
+])
+
+const skillCategories = ref([
+  {
+    name: 'Frontend',
+    items: ['Vue.js', 'React', 'JavaScript', 'HTML/CSS', 'Tailwind CSS', 'Vite']
+  },
+  {
+    name: 'Backend',
+    items: ['Node.js', 'Flask', 'Python', 'Express.js']
+  },
+  {
+    name: 'Database',
+    items: ['MySQL', 'MongoDB', 'Firebase', 'PostgreSQL']
+  },
+  {
+    name: 'Tools & Platforms',
+    items: ['Git/Github', 'VS Code', 'Figma', 'AWS', 'Vercel', 'Docker']
+  }
+])
+
+const showcaseItems = ref([
+  { title: 'Web Design', icon: '🎨' },
+  { title: 'Mobile Apps', icon: '📱' },
+  { title: 'API Integration', icon: '🔌' },
+  { title: 'Performance', icon: '⚡' },
+  { title: 'Security', icon: '🔒' },
+  { title: 'Scalability', icon: '📈' }
+])
+
+const form = ref({
+  name: '',
+  email: '',
+  message: ''
+})
+
+// Scroll event listener
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50
+  
+  // Fade in sections on scroll with intersection observer
+  document.querySelectorAll('.fade-in-section').forEach(section => {
+    const rect = section.getBoundingClientRect()
+    const isVisible = rect.top < window.innerHeight * 0.75
+    
+    if (isVisible) {
+      section.style.opacity = '1'
+    }
+  })
+}
+
+// Form submission with validation
+const submitForm = () => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  
+  if (!form.value.name || !form.value.email || !form.value.message) {
+    formStatus.value = '❌ Please fill all fields'
+    setTimeout(() => {
+      formStatus.value = ''
+    }, 3000)
+    return
+  }
+
+  if (!emailRegex.test(form.value.email)) {
+    formStatus.value = '❌ Please enter a valid email'
+    setTimeout(() => {
+      formStatus.value = ''
+    }, 3000)
+    return
+  }
+
+  formStatus.value = '📨 Sending...'
+
+  // Simulate sending to backend
+  setTimeout(() => {
+    formStatus.value = '✅ Message sent! I\'ll get back to you soon!'
+    form.value = { name: '', email: '', message: '' }
+    
+    setTimeout(() => {
+      formStatus.value = ''
+    }, 4000)
+  }, 1500)
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  
+  // Initial animation trigger
+  handleScroll()
+  
+  // Stagger animations for cards on load
+  document.querySelectorAll('.card').forEach((card, index) => {
+    card.style.animation = `fadeInUp 0.7s ease ${0.15 * index}s both`
+  })
+
+  // Intersection Observer for better performance
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1'
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+
+  document.querySelectorAll('.fade-in-section').forEach(section => {
+    observer.observe(section)
+  })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+</script>
