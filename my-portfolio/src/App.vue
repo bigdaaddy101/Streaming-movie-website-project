@@ -31,7 +31,7 @@
         </div>
         
         <div class="hero-content">
-          <h1 class="hero-title">Hi, I'm Chris 👋</h1>
+          <h1 class="hero-title">Hi, I'm Christoper 👋</h1>
           <p class="hero-subtitle">A Frontend Developer building modern web applications</p>
           <p class="hero-description">Specializing in Vue.js, responsive design, and user-friendly interfaces</p>
 
