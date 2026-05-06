@@ -4,10 +4,49 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Chris - Frontend Developer | Vue.js & Modern Web Apps</title>
+    <meta name="description" content="Chris is a professional frontend developer specializing in Vue.js, React, and modern web applications. View my portfolio projects and skills." />
+    <meta name="keywords" content="frontend developer, Vue.js, web development, JavaScript, web apps" />
+    <meta name="author" content="Chris" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#aa3bff" />
+    <link rel="canonical" href="https://chris.dev" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Chris - Frontend Developer" />
+    <meta property="og:description" content="A passionate frontend developer building modern web applications with Vue.js, JavaScript, and modern UI design." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chris.dev" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:site_name" content="Chris's Portfolio" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chris - Frontend Developer" />
+    <meta name="twitter:description" content="A passionate frontend developer building modern web applications." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+    
+    <!-- Preload Important Resources -->
+    <link rel="preload" as="image" href="/src/assets/610897477_25515214761454604_9128693774218866743_n.jpg" />
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Chris",
+      "url": "https://chris.dev",
+      "jobTitle": "Frontend Developer",
+      "email": "chris@example.com",
+      "description": "A passionate frontend developer specializing in Vue.js and modern web applications",
+      "knowsAbout": ["Vue.js", "JavaScript", "Web Development", "React", "Node.js", "MySQL"]
+    }
+    </script>
   </body>
 </html>
