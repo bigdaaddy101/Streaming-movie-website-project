@@ -605,7 +605,7 @@ footer {
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { SpeedInsights } from "@vercel/speed-insights/vue"
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 
 const isScrolled = ref(false)
 const activeCard = ref(null)
